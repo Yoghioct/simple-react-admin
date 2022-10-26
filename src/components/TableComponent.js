@@ -3,20 +3,30 @@ import BootstrapTable from 'react-bootstrap-table-next';
 import { Container, Button } from 'reactstrap';
 
 const columns = [{
+    dataField: 'id',
+    text: 'ID',
+    sort: true,
+    headerStyle: () => {
+        return { width: "5%" };
+    },
+},
+    {
     dataField: 'name',
-    text: 'Product Name'
+    text: 'Product Name',
+    sort: true
 }, {
     dataField: 'qty',
     text: 'Qty',
+    sort: true,
     headerStyle: () => {
         return { width: "5%" };
     },
 }, {
     dataField: 'expiredAt',
-    text: 'expiredAt'
+    text: 'Date'
 }, {
     dataField: 'isActive',
-    text: 'isActive',
+    text: 'Status',
     headerStyle: () => {
         return { width: "10%" };
     },
@@ -26,13 +36,15 @@ const columns = [{
     formatter: (rowContent, row) => {
         return (
             <div>
-                <Button color="dark" className="mr-2">
+                <Button color="dark" size="sm">
                     Detail
                 </Button>
-                <Button color="primary" className="mr-2">
+                {' '}
+                <Button color="primary" size="sm">
                     Edit
                 </Button>
-                <Button color="danger" className="mr-2">
+                {' '}
+                <Button color="danger" size="sm">
                     Delete
                 </Button>
             </div>
@@ -41,10 +53,15 @@ const columns = [{
 }
 ];
 
+const defaultSorted = [{
+    dataField:'name',
+    order: 'asc'
+}];
+
 const TableComponent = (props) => {
     return (
         <Container>
-        <BootstrapTable keyField='id' data={ props.products } columns={columns} />
+        <BootstrapTable bootstrap4 keyField='id' data={ props.products } columns={columns} defaultSorted={ defaultSorted }  />
         </Container>
     )
 }
