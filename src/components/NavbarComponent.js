@@ -8,7 +8,6 @@ import {
   NavItem,
   NavLink,
   Container,
-  Alert,
 } from 'reactstrap';
 
 function NavbarComponent(args) {
@@ -30,9 +29,8 @@ function NavbarComponent(args) {
           </Nav>
         </Collapse>
       </Navbar>
+      <hr />
       </Container>
-      <Alert color="light">
-      </Alert>
     </div>
   );
 }

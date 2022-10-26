@@ -1,6 +1,10 @@
 import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next';
 import { Container, Button } from 'reactstrap';
+import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min';
+import paginationFactory from 'react-bootstrap-table2-paginator';
+
+const { SearchBar } = Search;
 
 const columns = [{
     dataField: 'id',
@@ -10,7 +14,7 @@ const columns = [{
         return { width: "5%" };
     },
 },
-    {
+{
     dataField: 'name',
     text: 'Product Name',
     sort: true
@@ -54,14 +58,36 @@ const columns = [{
 ];
 
 const defaultSorted = [{
-    dataField:'name',
+    dataField: 'name',
     order: 'asc'
 }];
 
 const TableComponent = (props) => {
     return (
         <Container>
-        <BootstrapTable bootstrap4 keyField='id' data={ props.products } columns={columns} defaultSorted={ defaultSorted }  />
+
+            <ToolkitProvider
+                bootstrap4
+                keyField='id'
+                data={props.products}
+                columns={columns}
+                defaultSorted={defaultSorted}
+                search
+                >
+                {
+                    props => (
+                        <div>
+            <SearchBar { ...props.searchProps } placeholder="Cari Produk..."/>  
+        <hr />
+        <BootstrapTable
+          { ...props.baseProps }
+          pagination={ paginationFactory() }
+        />
+      </div>
+    )
+  }
+</ToolkitProvider>
+
         </Container>
     )
 }
