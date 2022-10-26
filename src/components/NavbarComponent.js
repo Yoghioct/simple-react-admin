@@ -24,7 +24,7 @@ function NavbarComponent(args) {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="me-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Product</NavLink>
+              <NavLink href="/">Product</NavLink>
             </NavItem>
           </Nav>
         </Collapse>
