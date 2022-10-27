@@ -13,7 +13,7 @@ class DetailProductContainer extends Component {
       <div>
           <Container>
             <BackComponent />
-            <h1>Detail Product </h1>
+            <h1>Detail Product</h1>
           </Container>
       </div>
     )
