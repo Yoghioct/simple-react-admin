@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
 import TableComponent from '../components/TableComponent'
 import { Container } from 'reactstrap';
+import { connect } from 'react-redux';
+import { getProductList } from '../actions/productAction'
 
-export default class HomeContainer extends Component {
+class HomeContainer extends Component {
+  componentDidMount(){
+    this.props.dispatch(getProductList());
+  }
   render() {
     return (
       <div>
@@ -15,3 +20,5 @@ export default class HomeContainer extends Component {
     )
   }
 }
+
+export default connect()(HomeContainer)

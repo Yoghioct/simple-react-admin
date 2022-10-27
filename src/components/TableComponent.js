@@ -70,18 +70,19 @@ const defaultSorted = [{
 
  const mapStateToProps = (state) => {
     return {
-        products: state.products.products
+        getProductList: state.products.getProductList,
+        errorProductList: state.products.errorProductList
     }
  }
 
 const TableComponent = (props) => {
     return (
         <Container>
-
+            { props.getProductList ? 
             <ToolkitProvider
                 bootstrap4
                 keyField='id'
-                data={props.products}
+                data={props.getProductList}
                 columns={columns}
                 defaultSorted={defaultSorted}
                 search
@@ -105,7 +106,7 @@ const TableComponent = (props) => {
                         </div>
                     )
                 }
-            </ToolkitProvider>
+            </ToolkitProvider> : null }
 
         </Container>
     )
