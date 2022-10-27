@@ -92,7 +92,7 @@ const TableComponent = (props) => {
                         <div>
                         <Row>
                             <Col>
-                            <div className='float-right'>
+                            <div className="float-right">
                                 <SearchBar {...props.searchProps} placeholder="Cari Produk..." />
                             </div>
                             </Col>
@@ -106,7 +106,10 @@ const TableComponent = (props) => {
                         </div>
                     )
                 }
-            </ToolkitProvider> : <Spinner color="dark" /> }
+            </ToolkitProvider> : 
+            <div className="text-center">
+                <Spinner color="dark" /> 
+            </div> }
 
         </Container>
     )

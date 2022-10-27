@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import NavbarComponent from './components/NavbarComponent'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, useParams } from 'react-router-dom';
 import HomeContainer from './containers/HomeContainer';
 import DetailProductContainer from './containers/DetailProductContainer';
 import EditProductContainer from './containers/EditProductContainer';
@@ -13,9 +13,9 @@ export default class App extends Component {
         <NavbarComponent />
         <Router>
           <Routes>
-            <Route path="/" element={<HomeContainer />} />
-            <Route path="/detail/:id" element={<DetailProductContainer />} />
-            <Route path="/edit/:id" element={<EditProductContainer />} />
+            <Route exact path="/" element={<HomeContainer />} />
+            <Route exact path="/detail/:id" element={<DetailProductContainer />} />
+            <Route exact path="/edit/:id" element={<EditProductContainer />} />
             <Route
               path="*"
               element={

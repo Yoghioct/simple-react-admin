@@ -1,8 +1,10 @@
-import { GET_PRODUCT_LIST } from '../actions/productAction'
+import { GET_PRODUCT_LIST, GET_PRODUCT_DETAIL } from '../actions/productAction'
 
 let initialState = {
      getProductList: false,
      errorProductList: false,
+     getProductDetail: false,
+     errorProductDetail: false,
 }
 
 const products = (state = initialState, action) => {
@@ -12,6 +14,12 @@ const products = (state = initialState, action) => {
                     ...state,
                     getProductList: action.payload.data,
                     errorProductList: action.payload.errorMessage,
+               };
+          case GET_PRODUCT_DETAIL:
+                return {
+                     ...state,
+                    getProductDetail: action.payload.data,
+                    errorProductDetail: action.payload.errorMessage,
                };
 
           default:
