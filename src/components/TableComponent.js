@@ -1,6 +1,6 @@
 import React from 'react'
 import BootstrapTable from 'react-bootstrap-table-next';
-import { Container, Button, Row, Col } from 'reactstrap';
+import { Container, Button, Row, Col, Spinner } from 'reactstrap';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min';
 import { Link } from 'react-router-dom';
 import paginationFactory from 'react-bootstrap-table2-paginator';
@@ -106,7 +106,7 @@ const TableComponent = (props) => {
                         </div>
                     )
                 }
-            </ToolkitProvider> : null }
+            </ToolkitProvider> : <Spinner color="dark" /> }
 
         </Container>
     )
