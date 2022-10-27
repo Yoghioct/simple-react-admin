@@ -8,7 +8,7 @@ export default class HomeContainer extends Component {
       <div>
         <h1>
           <Container>
-            <TableComponent products={this.props.products} />
+            <TableComponent />
           </Container>
         </h1>
       </div>

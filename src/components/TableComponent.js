@@ -4,6 +4,7 @@ import { Container, Button, Row, Col } from 'reactstrap';
 import ToolkitProvider, { Search } from 'react-bootstrap-table2-toolkit/dist/react-bootstrap-table2-toolkit.min';
 import { Link } from 'react-router-dom';
 import paginationFactory from 'react-bootstrap-table2-paginator';
+import { connect } from 'react-redux';
 
 const { SearchBar } = Search;
 
@@ -12,7 +13,7 @@ const columns = [{
     text: 'ID',
     sort: true,
     headerStyle: () => {
-        return { width: "5%" };
+        return { width: "7%" };
     },
 },
 {
@@ -24,7 +25,7 @@ const columns = [{
     text: 'Qty',
     sort: true,
     headerStyle: () => {
-        return { width: "5%" };
+        return { width: "7%" };
     },
 }, {
     dataField: 'expiredAt',
@@ -67,6 +68,12 @@ const defaultSorted = [{
     order: 'asc'
 }];
 
+ const mapStateToProps = (state) => {
+    return {
+        products: state.products.products
+    }
+ }
+
 const TableComponent = (props) => {
     return (
         <Container>
@@ -104,4 +111,4 @@ const TableComponent = (props) => {
     )
 }
 
-export default TableComponent
+export default connect(mapStateToProps, null)(TableComponent);
